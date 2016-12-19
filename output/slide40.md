@@ -1,6 +1,4 @@
+## Example script walkthrough 
 
-![](images/docker-vagrant.png)
-
-* Option 1: Direct Docker Support
-* Option 2: Docker inside a VM
+Sample: [myhero_install.sh](https://github.com/hpreston/myhero_demo/blob/master/myhero-install.sh)
 

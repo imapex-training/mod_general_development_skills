@@ -1,4 +1,15 @@
-## Example script walkthrough 
+### String Conditionals to know
 
-Sample: [myhero_install.sh](https://github.com/hpreston/myhero_demo/blob/master/myhero-install.sh)
+* Equal
+	
+``` 
+$username == "Hank"
+```
+	
+* NOT Equal
+	
+```
+$username != "Hank"
+```
+
 

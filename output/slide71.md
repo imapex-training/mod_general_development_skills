@@ -1,22 +1,8 @@
-## Loops 
 
-### for loop
+# Links 
 
-```
-#!/bin/bash
-for i in $( ls ); do
-   echo item: $i
-done		
-```
-
-### while loop
-
-```
-#!/bin/bash 
-COUNTER=0
-while [  $COUNTER -lt 10 ]; do
-	echo The counter is $COUNTER
-	COUNTER=$(( COUNTER+1 ))
-done	
-```	
+* [https://www.vagrantup.com](https://www.vagrantup.com)
+* [https://www.vagrantup.com/docs/getting-started/](https://www.vagrantup.com/docs/getting-started/)
+* [https://www.upguard.com/articles/docker-vs-vagrant](https://www.upguard.com/articles/docker-vs-vagrant)
+* [https://www.quora.com/Why-should-I-use-Vagrant-instead-of-creating-multiple-VMs-in-VirtualBox-or-VMWare-Workstation](https://www.quora.com/Why-should-I-use-Vagrant-instead-of-creating-multiple-VMs-in-VirtualBox-or-VMWare-Workstation)
 

@@ -1,9 +1,3 @@
-# grep
-
-```
-ls ~/coding | grep imapex
-
-imapex
-imapex101
-```
+## Don't forget the "Ops" in DevOps...
+![](images/devops-infinity.png)
 

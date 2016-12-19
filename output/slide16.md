@@ -1,6 +1,12 @@
-## Example
+### Helpful Hints and Gotchas
+
+* Escaping command characters
 
 ```
-awk '/hello/ { print $2 }' hello.txt
+# Wrong
+curl -u admin:cisco! 192.168.0.1/home 
+	
+# Rigth
+curl -u admin:cisco\! 192.168.0.1/home
 ```
 

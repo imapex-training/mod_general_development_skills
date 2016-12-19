@@ -1,7 +1,7 @@
-## Benefits of good testing
 
-* Requires less background knowledge for other developers to contribute
-* Reduces failed deployments
-* Makes code refactoring easier
-* Helps identify where additional validation logic is required
+# Linting
+
+> At the end of the day, ship the fucking thing! It’s great to rewrite your code and make it cleaner and by the
+> third time it’ll actually be pretty. But that’s not the point—you’re not here to write code;
+> you’re here to ship products. - Jamie Zawinsky
 

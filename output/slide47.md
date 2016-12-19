@@ -1,3 +1,2 @@
-
-![](images/zen-python.jpg)
+# Experiments
 

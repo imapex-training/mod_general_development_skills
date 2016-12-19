@@ -19,14 +19,201 @@ A slide show version of this presentation is available at this link: [General De
 ## Main Topics
 
 ### Practical Skills
-* [Basic Linux Tools](#basic-linux-tools)
 * [Markdown](#markdown)
-* [Vagrant](#vagrant)
+* [Basic Linux Tools](#basic-linux-tools)
 * [Python Skills](#python-skills)
 * [Writing and Using Test Cases](#writing-test-cases)
 * [Linting](#linting)
 
+### Bonus Skills
+* [Vagrant](#vagrant)
+
 [item]: # (/slide)
+
+[item]: # (slide)
+
+# Markdown
+
+```
+# Markdown! 
+
+Great for 
+* Making quick notes
+* Easy display formating 
+```
+
+[item]: # (/slide)
+
+Markdown is another web formatting language.  And where "Mark Up" languages like HTML and XML are full of tags and can be complicated to use and read, Markdown was developed to be simple to use and human readable in it's native form.  
+
+In typical use, Markdown is "rendered" into HTML by a Web Application using Javascript.  Currently no browser natively supports it, but there are several add-ons that can provide this functionality.  
+
+[item]: # (slide)
+
+## MarkDown Editing
+
+![](images/macdown.png)
+
+[item]: # (/slide)
+
+Many IDEs provide support for Markdown editing/rendering as part of their language tools.  Alternatively, many dedicated Markdown tools exist.  Here is an image of [MacDown](http://macdown.uranusjr.com), an easy to use, open source Markdown editor for OS X.  
+
+[item]: # (slide)
+
+# Exercises 
+
+[item]: # (/slide)
+
+* These exercises are best completed with an IDE or tool that can render the Markdown while editing.  Some options: 
+
+    * JetBrains tools 
+        * PyCharm
+        * WebStorm
+        * Others
+    * MacDown
+    * Atom
+    * Eclipse
+
+* Create a new blank file in your editor and save it as `imapex101_ex.md` 
+
+* Create the headings for your new file 
+    * the `#` symbol at the start of a line, followed by a space, indicates a heading.  These translate to `<H1> <H2> <Hx>` tags in HTML
+
+```
+# Colors 
+
+## Primary 
+
+## Secondary
+```
+
+* Create a list of colors
+    * `*` or `1.` create unordered and ordered lists
+
+```
+# Colors 
+
+## Primary 
+* Red
+* Blue
+* Yellow
+
+## Secondary
+1. Green
+2. Purple
+3. Orange
+```
+
+* Create emphasis with bold and/or italics 
+    * Surrounding a word or phrase with `**PHRASE**` will bold
+    * Surrounding a word or phrase with `*PHRASE*` will italisize
+    * Surrounding a word or phrase with `***PHRASE***` will bold and italisize
+    * *Other options do exist*
+
+```
+# Colors 
+
+## Primary 
+* **Red**
+* *Blue*
+* ***Yellow***
+
+## Secondary
+1. Green
+2. Purple
+3. Orange
+```
+
+* Create a hyperlink to another page
+    * Links are created with `[Text](address)`
+
+```
+# Colors 
+
+## Primary 
+* **Red**
+* *Blue*
+* ***Yellow***
+
+## Secondary
+1. [Green](http://green.io)
+2. Purple
+3. Orange
+```    
+
+* Add an image file 
+    * Images are inserted with `![Alt-Text](image src)`
+
+```
+# Colors 
+
+![Color Wheel](http://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2011/7/18/0/HGTV_Color-Wheel-Full_s4x3.jpg.rend.hgtvcom.616.462.jpeg)
+
+## Primary 
+* **Red**
+* *Blue*
+* ***Yellow***
+
+## Secondary
+1. [Green](http://green.io)
+2. Purple
+3. Orange
+```        
+
+* Insert a code into your document
+    * For inline, surround with single ticks ` 
+    * For blocks, surround with triple ticks ```
+        * *In example below, an extra space is added before the ``` to prevent rendering in the lab*
+
+```
+# Colors 
+    
+![Color Wheel](http://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2011/7/18/0/HGTV_Color-Wheel-Full_s4x3.jpg.rend.hgtvcom.616.462.jpeg)
+    
+## Primary 
+* **Red**
+* *Blue*
+* ***Yellow***
+    
+## Secondary
+1. [Green](http://green.io)
+2. Purple
+3. Orange
+
+ ```
+ # Some Code snippet 
+ green = blue + yellow
+ ```
+```        
+
+[item]: # (slide)
+
+## Links
+
+* [Official GitHub Markdown Page](https://guides.github.com/features/mastering-markdown/)
+* [Great Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+[item]: # (/slide)
+
+[item]: # (slide)
+
+## Why do we care
+
+[item]: # (/slide)
+
+In addition to using Markdown for creating documetation on all projects, Markdown formatting is supported in many of the developer tools you will use.  Gitter, Slack, Spark, and nearly any dev focused messaging tool supports Markdown for formating.  Also, when you are filing issues or PRs for repos, those interfaces support markdown as well.  
+
+Further, you may find yourself beginning to leverage Markdown for general note taking as a great way to quickly pull together thoughts and notes.  
+
+[item]: # (slide)
+
+## Go Do It Exercises
+
+Create a basic personal resume for yourself using Markdown.  
+
+[item]: # (/slide)
+
+---
 
 [item]: # (slide)
 # Basic Linux Tools
@@ -778,395 +965,6 @@ Let's look at an example real script used as part of the [MyHero Demo](https://g
 This exercise will combine skills from the full Linux tools content.  
 
 [item]: # (slide)
-
-# Vagrant 
-
-![](images/vagrant1.png)
-
-[item]: # (/slide)
-
-Vagrant is a tool for developers to make preparing, managing, and replicating a dedicated development environment as easy and painless as possible.  It is **NOT** intended to manage or deploy production environments.  It **IS** intended to make a development environment as close to a production environment as practical and possible.  
-
-[item]: # (slide)
-
-### Developing Before Vagrant
-
-* Locally on their physical machine 
-* Request Virtual Machines for development from IT or other source 
-* Run their own VM platform
-	* On a personal dedicated server.  The ESX server in the corner or under the desk.  
-	* With something like Virtual Box or VM Fusion on their workstation.  
-* Or whatever else they could come up with.  
-
-[item]: # (/slide)
-
-Before Vagrant... developers used one of the above methods when developing software
-
-[item]: # (slide)
-### Challenges with legacy development approaches 
-
-* Time delays in getting new development environments
-* Managing their own dev platforms 
-* Significant Differences between Dev and Production
-* Shared development environments for multiple projects 
-* Rebuilding a new environment takes time
-
-[item]: # (/slide)
-
-All of these options presented many problems
-
-[item]: # (slide)
-
-## Supported Environments
-
-### Out of the box support
-
-* Virtualbox 
-* Docker
-* Hyper-V
-
-### Plugins available 
-
-* VMware
-* AWS
-* Others... 
-
-[item]: # (/slide)
-
-Vagrant is often used along with Virtualbox to provide a local dev environment on the developers own computer, but it can also leverage other providers.  
-
-## Sidebar on Docker
-
-[item]: # (slide)
-
-![](images/docker-vagrant.png)
-
-* Option 1: Direct Docker Support
-* Option 2: Docker inside a VM
-
-[item]: # (/slide)
-
-Vagrant is often thought of, and started out, as a VM based tool.  With the push in development towards containers, and Docker specifically, it is now often used for container based development as well.  There are two ways to work with Docker containers and Vagrant
-
-#### Option 1: Direct Docker Support
-
-If your underlying computer can support running containers natively, Vagrant can directly deploy containers to the Docker daemon on your workstation (or a remote host).  
-
-#### Option 2: Docker inside a VM
-
-For a long time, you could only run Docker natively on a Linux OS.  To run Docker on Mac or Windows you needed to run a Linux based VM, and then run Docker inside the VM.  Technologies like Docker Toolbox, Docker Machine, and boot2docker all worked to make this easier.  Vagrant can use this model to also support Docker development by first creating a host VM, installing Docker into the VM, and then deploying containers on the VM.  
-
-[item]: # (slide)
-## Key Concepts and Terms
-
-* `vagrant up`
-* `Vagrantfile`
-* A ***box***
-
-[item]: # (/slide)
-
-### Details 
-
-* `vagrant up`
-	* The simple command needed to bring up the full development environment
-* `Vagrantfile`
-	* The configuration file used by Vagrant to describe the development environment needed
-	* When you `vagrant up`, vagrant will look for a file called `Vagrantfile` in the working directory.  You can use a differnet name, but you'll need to specify it
-* A **box**
-	* Vagrant refers to the source images or templates it uses to provision new development environments as **boxes**
-	* You can build your own boxes, but there is a very large assortment of available ones maintained by the community 
-	* Each **box** is for a particular provider, but most underlying OS's or platforms have boxes available for all common providers.  
-
-[item]: # (slide)
-
-# Experiments 
-
-[item]: # (/slide)
-
-We'll create a new directory and walk through some basic Vagrant exercises.  
-
-* Create the new directory, and initialize vagrant for the project 
-
-	```
-	mkdir imapex101vagrant
-	cd imapex101vagrant
-	vagrant init	centos/7
-	
-	A `Vagrantfile` has been placed in this directory. You are now
-	ready to `vagrant up` your first virtual environment! Please read
-	the comments in the Vagrantfile as well as documentation on
-	`vagrantup.com` for more information on using Vagrant.
-	```
-
-* `vagrant init centos/7` creates a basic Vagrantfile in the directory.  the `centos/7` part identifies the **box** that we'll use.  Let's take a look. 
-
-	```
-	cat Vagrantfile 
-	
-	# -*- mode: ruby -*-
-	# vi: set ft=ruby :
-	
-	# All Vagrant configuration is done below. The "2" in Vagrant.configure
-	# configures the configuration version (we support older styles for
-	# backwards compatibility). Please don't change it unless you know what
-	# you're doing.
-	Vagrant.configure(2) do |config|
-	  # The most common configuration options are documented and commented below.
-	  # For a complete reference, please see the online documentation at
-	  # https://docs.vagrantup.com.
-	
-	  # Every Vagrant development environment requires a box. You can search for
-	  # boxes at https://atlas.hashicorp.com/search.
-	  config.vm.box = "centos/7"
-	
-	  # Disable automatic box update checking. If you disable this, then
-	  # boxes will only be checked for updates when the user runs
-	  # `vagrant box outdated`. This is not recommended.
-	  # config.vm.box_check_update = false
-	
-	  # Create a forwarded port mapping which allows access to a specific port
-	  # within the machine from a port on the host machine. In the example below,
-	  # accessing "localhost:8080" will access port 80 on the guest machine.
-	  # config.vm.network "forwarded_port", guest: 80, host: 8080
-	
-	  # Create a private network, which allows host-only access to the machine
-	  # using a specific IP.
-	  # config.vm.network "private_network", ip: "192.168.33.10"
-	
-	  # Create a public network, which generally matched to bridged network.
-	  # Bridged networks make the machine appear as another physical device on
-	  # your network.
-	  # config.vm.network "public_network"
-	
-	  # Share an additional folder to the guest VM. The first argument is
-	  # the path on the host to the actual folder. The second argument is
-	  # the path on the guest to mount the folder. And the optional third
-	  # argument is a set of non-required options.
-	  # config.vm.synced_folder "../data", "/vagrant_data"
-	
-	  # Provider-specific configuration so you can fine-tune various
-	  # backing providers for Vagrant. These expose provider-specific options.
-	  # Example for VirtualBox:
-	  #
-	  # config.vm.provider "virtualbox" do |vb|
-	  #   # Display the VirtualBox GUI when booting the machine
-	  #   vb.gui = true
-	  #
-	  #   # Customize the amount of memory on the VM:
-	  #   vb.memory = "1024"
-	  # end
-	  #
-	  # View the documentation for the provider you are using for more
-	  # information on available options.
-	
-	  # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
-	  # such as FTP and Heroku are also available. See the documentation at
-	  # https://docs.vagrantup.com/v2/push/atlas.html for more information.
-	  # config.push.define "atlas" do |push|
-	  #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
-	  # end
-	
-	  # Enable provisioning with a shell script. Additional provisioners such as
-	  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
-	  # documentation for more information about their specific syntax and use.
-	  # config.vm.provision "shell", inline: <<-SHELL
-	  #   sudo apt-get update
-	  #   sudo apt-get install -y apache2
-	  # SHELL
-	end
-	```
-	
-	* The basic Vagrantfile is nearly all just comments and sample configuraitons for customization.  Only a very small part is actually active.  That part is listed here to highlight how little is needed to get started with vagrant
-	
-	```
-	Vagrant.configure(2) do |config|
-	  config.vm.box = "centos/7"
-	end		
-	```
-	
-* Initialize the development environment
-
-	```
-	vagrant up
-	
-	# if this is the first time you've done this, 
-	# you'll need to download the box.  That may take a few minutes
-	
-	Bringing machine 'default' up with 'virtualbox' provider...
-	==> default: Importing base box 'centos/7'...
-	==> default: Matching MAC address for NAT networking...
-	==> default: Checking if box 'centos/7' is up to date...
-	==> default: A newer version of the box 'centos/7' is available! You currently
-	==> default: have version '1603.01'. The latest is version '1606.01'. Run
-	==> default: `vagrant box update` to update.
-	==> default: Setting the name of the VM: imapex101vagrant_default_1469643769035_85893
-	==> default: Clearing any previously set network interfaces...
-	==> default: Preparing network interfaces based on configuration...
-	    default: Adapter 1: nat
-	==> default: Forwarding ports...
-	    default: 22 (guest) => 2222 (host) (adapter 1)
-	==> default: Booting VM...
-	==> default: Waiting for machine to boot. This may take a few minutes...
-	    default: SSH address: 127.0.0.1:2222
-	    default: SSH username: vagrant
-	    default: SSH auth method: private key
-	    default: Warning: Remote connection disconnect. Retrying...
-	    default: Warning: Remote connection disconnect. Retrying...
-	    default: Warning: Remote connection disconnect. Retrying...
-	    default:
-	    default: Vagrant insecure key detected. Vagrant will automatically replace
-	    default: this with a newly generated keypair for better security.
-	    default:
-	    default: Inserting generated public key within guest...
-	    default: Removing insecure key from the guest if it's present...
-	    default: Key inserted! Disconnecting and reconnecting using new SSH key...
-	==> default: Machine booted and ready!
-	==> default: Checking for guest additions in VM...
-	    default: No guest additions were detected on the base box for this VM! Guest
-	    default: additions are required for forwarded ports, shared folders, host only
-	    default: networking, and more. If SSH fails on this machine, please install
-	    default: the guest additions and repackage the box to continue.
-	    default:
-	    default: This is not an error message; everything may continue to work properly,
-	    default: in which case you may ignore this message.
-	==> default: Rsyncing folder: /Users/hapresto/coding/imapex101/examples/imapex101vagrant/ => /home/vagrant/sync	
-	
-	```
-	
-	* 	The output describes the process that is taken to start the environment.  The configuraiton and process is all determined by the `Vagrantfile`.  In our case, there was very little specified, so all configuraiton here is based on the defaults.  The defaults are built to provide a useable environment very easily, with little work by the developer.  
-*  Explore the vagrant tools some
-
-	```
-	# Get current status of vagrant for this project
-	vagrant status
-	
-	Current machine states:
-	
-	default                   running (virtualbox)
-	
-	The VM is running. To stop this VM, you can run `vagrant halt` to
-	shut it down forcefully, or you can run `vagrant suspend` to simply
-	suspend the virtual machine. In either case, to restart it again,
-	simply run `vagrant up`.	
-	```	
-	```	
-	# Sometimes you may want to check the status of vagrant 
-	# environments on your entire computer, not just the current directory
-	vagrant global-status
-	
-	id       name    provider   state   directory
-	-----------------------------------------------------------------------------------------------
-	43c5018  default virtualbox saved   /Users/hapresto/coding/myhero_app
-	24f2e19  default virtualbox saved   /Users/hapresto/coding/myhero_web
-	20f794d  default virtualbox saved   /Users/hapresto/coding/mantl_cicd_sampleapp
-	26aa5b7  default docker     running /Users/hapresto/coding/mantl_cicd_sampleapp
-	9608b2f  default docker     running /Users/hapresto/coding/myhero_app
-	2ce0ff0  default virtualbox running /Users/hapresto/coding/myhero_data
-	8f444c4  default docker     running /Users/hapresto/coding/myhero_data
-	01874c0  default virtualbox running /Users/hapresto/coding/imapex101/examples/imapex101vagrant
-	
-	The above shows information about all known Vagrant environments
-	on this machine. This data is cached and may not be completely
-	up-to-date. To interact with any of the machines, you can go to
-	that directory and run Vagrant, or you can use the ID directly
-	with Vagrant commands from any directory. For example:
-	"vagrant destroy 1a2b3c4d"
-	
-	```
-	
-	* In this example you can see that I have several differnet environments running.  Some based on virtualbox, others on docker.  If you want to target an environment that is NOT your current directory, you can specify the id value in the command.  Such as `vagrant destroy 1a2b3c4d`
-
-	```
-	# Log into your newly created environment 
-	vagrant ssh 
-	
-	# this places you into the virtual environment
-	# follow along with the commands entered at the prompts
-	[vagrant@localhost ~]$ pwd
-	/home/vagrant
-	
-	# Vagrant boxes typically use a user called "vagrant"
-	# In that users's home directory is a folder called "sync" 
-	[vagrant@localhost ~]$ ls -l
-	total 4
-	drwxr-xr-x. 2 vagrant vagrant 4096 Jul 27 14:20 sync
-	
-	[vagrant@localhost ~]$ ls -l sync/
-	total 4
-	-rw-r--r--. 1 vagrant vagrant 3020 Jul 27 14:20 Vagrantfile
-
-	# The "sync" folder is linked to the project directory on 
-	# your computer.  This makes development easy because you 
-	# can develop on your laptop using your local tools, and 
-	# immediately test and run code inside the enviornment without
-	# manual coping and transferring code
-	
-	# type exit to return to your local terminal
-	exit
-	```
-
-* Let's lifecycle the environment
-	
-	```
-	# Run this command to get a glimpse at the different lifecycle actions 
-	
-	vagrant ? | grep "up\|destroy\|halt\|reload\|resume\|suspend"
-	
-	     destroy         stops and deletes all traces of the vagrant machine
-	     halt            stops the vagrant machine
-	     plugin          manages plugins: install, uninstall, update, etc.
-	     reload          restarts vagrant machine, loads new Vagrantfile configuration
-	     resume          resume a suspended vagrant machine
-	     suspend         suspends the machine
-	     up              starts and provisions the vagrant environment
-	
-	# use suspend and resume together 
-	# reload rebuilds the environment from scratch, helpful if you change the Vagrantfile 
-	# halt is like shuttingdown a guest OS, but it is NOT deleted
-	# destroy shutsdown and deletes 
-	# up only works for a "halted" or non-existent environment 
-	
-	# experiment with the options, and then 
-	vagrant destroy
-	
-	    default: Are you sure you want to destroy the 'default' VM? [y/N] y
-	==> default: Forcing shutdown of VM...
-	==> default: Destroying VM and associated drives...
-	```
-
-[item]: # (slide)
-
-# Links 
-
-* [https://www.vagrantup.com](https://www.vagrantup.com)
-* [https://www.vagrantup.com/docs/getting-started/](https://www.vagrantup.com/docs/getting-started/)
-* [https://www.upguard.com/articles/docker-vs-vagrant](https://www.upguard.com/articles/docker-vs-vagrant)
-* [https://www.quora.com/Why-should-I-use-Vagrant-instead-of-creating-multiple-VMs-in-VirtualBox-or-VMWare-Workstation](https://www.quora.com/Why-should-I-use-Vagrant-instead-of-creating-multiple-VMs-in-VirtualBox-or-VMWare-Workstation)
-
-[item]: # (/slide)
-
-[item]: # (slide)
-## Why do we care 
-
-[item]: # (/slide)
-
-Development in general, but Cloud Native development for sure, are all about using techinques and tools to make their world easier.  Concepts like _Infrastructure as Code_ started with them, and tools like this.  Understanding how a modern developer works, learning to use their tools, will make having a dialog with them much easier.  
-
-It will also help you as you talk with Infrastructure teams to be able to educate them on these types of concepts.  
-
-[item]: # (slide)
-
-## Go do it Exercises 
-
-* Take a look at the [hpreston/myhero_data](https://github.com/hpreston/myhero_data) repo and read through the README section on development environments.  
-* Clone the repo locally and "vagrant up" the environment and try to interact with the microservice API.  
-* Review the Vagrantfile and Vagrantfile.host and see if you can follow how they work together to provide a Docker environment with Vagrant
-
-[item]: # (/slide)
-
-One of the nicest things about Vagrant, is the ability to embed the development environment into the code repositories.  You will find many code repo's that include a Vagrantfile to make development easier.  
-
-[item]: # (slide)
 # Python Skills 
 
 ![](images/python-logo.png)
@@ -1707,6 +1505,402 @@ doubler.py:7:1: W293 blank line contains whitespace
 
 
 
+[item]: # (slide)
+
+# Bonus Skills
+
+Here are some additional skills that are handy to have.  If you've interest and time they are available.  
+
+[item]: # (/slide)
+
+[item]: # (slide)
+
+# Vagrant 
+
+![](images/vagrant1.png)
+
+[item]: # (/slide)
+
+Vagrant is a tool for developers to make preparing, managing, and replicating a dedicated development environment as easy and painless as possible.  It is **NOT** intended to manage or deploy production environments.  It **IS** intended to make a development environment as close to a production environment as practical and possible.  
+
+[item]: # (slide)
+
+### Developing Before Vagrant
+
+* Locally on their physical machine 
+* Request Virtual Machines for development from IT or other source 
+* Run their own VM platform
+	* On a personal dedicated server.  The ESX server in the corner or under the desk.  
+	* With something like Virtual Box or VM Fusion on their workstation.  
+* Or whatever else they could come up with.  
+
+[item]: # (/slide)
+
+Before Vagrant... developers used one of the above methods when developing software
+
+[item]: # (slide)
+### Challenges with legacy development approaches 
+
+* Time delays in getting new development environments
+* Managing their own dev platforms 
+* Significant Differences between Dev and Production
+* Shared development environments for multiple projects 
+* Rebuilding a new environment takes time
+
+[item]: # (/slide)
+
+All of these options presented many problems
+
+[item]: # (slide)
+
+## Supported Environments
+
+### Out of the box support
+
+* Virtualbox 
+* Docker
+* Hyper-V
+
+### Plugins available 
+
+* VMware
+* AWS
+* Others... 
+
+[item]: # (/slide)
+
+Vagrant is often used along with Virtualbox to provide a local dev environment on the developers own computer, but it can also leverage other providers.  
+
+## Sidebar on Docker
+
+[item]: # (slide)
+
+![](images/docker-vagrant.png)
+
+* Option 1: Direct Docker Support
+* Option 2: Docker inside a VM
+
+[item]: # (/slide)
+
+Vagrant is often thought of, and started out, as a VM based tool.  With the push in development towards containers, and Docker specifically, it is now often used for container based development as well.  There are two ways to work with Docker containers and Vagrant
+
+#### Option 1: Direct Docker Support
+
+If your underlying computer can support running containers natively, Vagrant can directly deploy containers to the Docker daemon on your workstation (or a remote host).  
+
+#### Option 2: Docker inside a VM
+
+For a long time, you could only run Docker natively on a Linux OS.  To run Docker on Mac or Windows you needed to run a Linux based VM, and then run Docker inside the VM.  Technologies like Docker Toolbox, Docker Machine, and boot2docker all worked to make this easier.  Vagrant can use this model to also support Docker development by first creating a host VM, installing Docker into the VM, and then deploying containers on the VM.  
+
+[item]: # (slide)
+## Key Concepts and Terms
+
+* `vagrant up`
+* `Vagrantfile`
+* A ***box***
+
+[item]: # (/slide)
+
+### Details 
+
+* `vagrant up`
+	* The simple command needed to bring up the full development environment
+* `Vagrantfile`
+	* The configuration file used by Vagrant to describe the development environment needed
+	* When you `vagrant up`, vagrant will look for a file called `Vagrantfile` in the working directory.  You can use a differnet name, but you'll need to specify it
+* A **box**
+	* Vagrant refers to the source images or templates it uses to provision new development environments as **boxes**
+	* You can build your own boxes, but there is a very large assortment of available ones maintained by the community 
+	* Each **box** is for a particular provider, but most underlying OS's or platforms have boxes available for all common providers.  
+
+[item]: # (slide)
+
+# Experiments 
+
+[item]: # (/slide)
+
+We'll create a new directory and walk through some basic Vagrant exercises.  
+
+* Create the new directory, and initialize vagrant for the project 
+
+	```
+	mkdir imapex101vagrant
+	cd imapex101vagrant
+	vagrant init	centos/7
+	
+	A `Vagrantfile` has been placed in this directory. You are now
+	ready to `vagrant up` your first virtual environment! Please read
+	the comments in the Vagrantfile as well as documentation on
+	`vagrantup.com` for more information on using Vagrant.
+	```
+
+* `vagrant init centos/7` creates a basic Vagrantfile in the directory.  the `centos/7` part identifies the **box** that we'll use.  Let's take a look. 
+
+	```
+	cat Vagrantfile 
+	
+	# -*- mode: ruby -*-
+	# vi: set ft=ruby :
+	
+	# All Vagrant configuration is done below. The "2" in Vagrant.configure
+	# configures the configuration version (we support older styles for
+	# backwards compatibility). Please don't change it unless you know what
+	# you're doing.
+	Vagrant.configure(2) do |config|
+	  # The most common configuration options are documented and commented below.
+	  # For a complete reference, please see the online documentation at
+	  # https://docs.vagrantup.com.
+	
+	  # Every Vagrant development environment requires a box. You can search for
+	  # boxes at https://atlas.hashicorp.com/search.
+	  config.vm.box = "centos/7"
+	
+	  # Disable automatic box update checking. If you disable this, then
+	  # boxes will only be checked for updates when the user runs
+	  # `vagrant box outdated`. This is not recommended.
+	  # config.vm.box_check_update = false
+	
+	  # Create a forwarded port mapping which allows access to a specific port
+	  # within the machine from a port on the host machine. In the example below,
+	  # accessing "localhost:8080" will access port 80 on the guest machine.
+	  # config.vm.network "forwarded_port", guest: 80, host: 8080
+	
+	  # Create a private network, which allows host-only access to the machine
+	  # using a specific IP.
+	  # config.vm.network "private_network", ip: "192.168.33.10"
+	
+	  # Create a public network, which generally matched to bridged network.
+	  # Bridged networks make the machine appear as another physical device on
+	  # your network.
+	  # config.vm.network "public_network"
+	
+	  # Share an additional folder to the guest VM. The first argument is
+	  # the path on the host to the actual folder. The second argument is
+	  # the path on the guest to mount the folder. And the optional third
+	  # argument is a set of non-required options.
+	  # config.vm.synced_folder "../data", "/vagrant_data"
+	
+	  # Provider-specific configuration so you can fine-tune various
+	  # backing providers for Vagrant. These expose provider-specific options.
+	  # Example for VirtualBox:
+	  #
+	  # config.vm.provider "virtualbox" do |vb|
+	  #   # Display the VirtualBox GUI when booting the machine
+	  #   vb.gui = true
+	  #
+	  #   # Customize the amount of memory on the VM:
+	  #   vb.memory = "1024"
+	  # end
+	  #
+	  # View the documentation for the provider you are using for more
+	  # information on available options.
+	
+	  # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
+	  # such as FTP and Heroku are also available. See the documentation at
+	  # https://docs.vagrantup.com/v2/push/atlas.html for more information.
+	  # config.push.define "atlas" do |push|
+	  #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
+	  # end
+	
+	  # Enable provisioning with a shell script. Additional provisioners such as
+	  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+	  # documentation for more information about their specific syntax and use.
+	  # config.vm.provision "shell", inline: <<-SHELL
+	  #   sudo apt-get update
+	  #   sudo apt-get install -y apache2
+	  # SHELL
+	end
+	```
+	
+	* The basic Vagrantfile is nearly all just comments and sample configuraitons for customization.  Only a very small part is actually active.  That part is listed here to highlight how little is needed to get started with vagrant
+	
+	```
+	Vagrant.configure(2) do |config|
+	  config.vm.box = "centos/7"
+	end		
+	```
+	
+* Initialize the development environment
+
+	```
+	vagrant up
+	
+	# if this is the first time you've done this, 
+	# you'll need to download the box.  That may take a few minutes
+	
+	Bringing machine 'default' up with 'virtualbox' provider...
+	==> default: Importing base box 'centos/7'...
+	==> default: Matching MAC address for NAT networking...
+	==> default: Checking if box 'centos/7' is up to date...
+	==> default: A newer version of the box 'centos/7' is available! You currently
+	==> default: have version '1603.01'. The latest is version '1606.01'. Run
+	==> default: `vagrant box update` to update.
+	==> default: Setting the name of the VM: imapex101vagrant_default_1469643769035_85893
+	==> default: Clearing any previously set network interfaces...
+	==> default: Preparing network interfaces based on configuration...
+	    default: Adapter 1: nat
+	==> default: Forwarding ports...
+	    default: 22 (guest) => 2222 (host) (adapter 1)
+	==> default: Booting VM...
+	==> default: Waiting for machine to boot. This may take a few minutes...
+	    default: SSH address: 127.0.0.1:2222
+	    default: SSH username: vagrant
+	    default: SSH auth method: private key
+	    default: Warning: Remote connection disconnect. Retrying...
+	    default: Warning: Remote connection disconnect. Retrying...
+	    default: Warning: Remote connection disconnect. Retrying...
+	    default:
+	    default: Vagrant insecure key detected. Vagrant will automatically replace
+	    default: this with a newly generated keypair for better security.
+	    default:
+	    default: Inserting generated public key within guest...
+	    default: Removing insecure key from the guest if it's present...
+	    default: Key inserted! Disconnecting and reconnecting using new SSH key...
+	==> default: Machine booted and ready!
+	==> default: Checking for guest additions in VM...
+	    default: No guest additions were detected on the base box for this VM! Guest
+	    default: additions are required for forwarded ports, shared folders, host only
+	    default: networking, and more. If SSH fails on this machine, please install
+	    default: the guest additions and repackage the box to continue.
+	    default:
+	    default: This is not an error message; everything may continue to work properly,
+	    default: in which case you may ignore this message.
+	==> default: Rsyncing folder: /Users/hapresto/coding/imapex101/examples/imapex101vagrant/ => /home/vagrant/sync	
+	
+	```
+	
+	* 	The output describes the process that is taken to start the environment.  The configuraiton and process is all determined by the `Vagrantfile`.  In our case, there was very little specified, so all configuraiton here is based on the defaults.  The defaults are built to provide a useable environment very easily, with little work by the developer.  
+*  Explore the vagrant tools some
+
+	```
+	# Get current status of vagrant for this project
+	vagrant status
+	
+	Current machine states:
+	
+	default                   running (virtualbox)
+	
+	The VM is running. To stop this VM, you can run `vagrant halt` to
+	shut it down forcefully, or you can run `vagrant suspend` to simply
+	suspend the virtual machine. In either case, to restart it again,
+	simply run `vagrant up`.	
+	```	
+	```	
+	# Sometimes you may want to check the status of vagrant 
+	# environments on your entire computer, not just the current directory
+	vagrant global-status
+	
+	id       name    provider   state   directory
+	-----------------------------------------------------------------------------------------------
+	43c5018  default virtualbox saved   /Users/hapresto/coding/myhero_app
+	24f2e19  default virtualbox saved   /Users/hapresto/coding/myhero_web
+	20f794d  default virtualbox saved   /Users/hapresto/coding/mantl_cicd_sampleapp
+	26aa5b7  default docker     running /Users/hapresto/coding/mantl_cicd_sampleapp
+	9608b2f  default docker     running /Users/hapresto/coding/myhero_app
+	2ce0ff0  default virtualbox running /Users/hapresto/coding/myhero_data
+	8f444c4  default docker     running /Users/hapresto/coding/myhero_data
+	01874c0  default virtualbox running /Users/hapresto/coding/imapex101/examples/imapex101vagrant
+	
+	The above shows information about all known Vagrant environments
+	on this machine. This data is cached and may not be completely
+	up-to-date. To interact with any of the machines, you can go to
+	that directory and run Vagrant, or you can use the ID directly
+	with Vagrant commands from any directory. For example:
+	"vagrant destroy 1a2b3c4d"
+	
+	```
+	
+	* In this example you can see that I have several differnet environments running.  Some based on virtualbox, others on docker.  If you want to target an environment that is NOT your current directory, you can specify the id value in the command.  Such as `vagrant destroy 1a2b3c4d`
+
+	```
+	# Log into your newly created environment 
+	vagrant ssh 
+	
+	# this places you into the virtual environment
+	# follow along with the commands entered at the prompts
+	[vagrant@localhost ~]$ pwd
+	/home/vagrant
+	
+	# Vagrant boxes typically use a user called "vagrant"
+	# In that users's home directory is a folder called "sync" 
+	[vagrant@localhost ~]$ ls -l
+	total 4
+	drwxr-xr-x. 2 vagrant vagrant 4096 Jul 27 14:20 sync
+	
+	[vagrant@localhost ~]$ ls -l sync/
+	total 4
+	-rw-r--r--. 1 vagrant vagrant 3020 Jul 27 14:20 Vagrantfile
+
+	# The "sync" folder is linked to the project directory on 
+	# your computer.  This makes development easy because you 
+	# can develop on your laptop using your local tools, and 
+	# immediately test and run code inside the enviornment without
+	# manual coping and transferring code
+	
+	# type exit to return to your local terminal
+	exit
+	```
+
+* Let's lifecycle the environment
+	
+	```
+	# Run this command to get a glimpse at the different lifecycle actions 
+	
+	vagrant ? | grep "up\|destroy\|halt\|reload\|resume\|suspend"
+	
+	     destroy         stops and deletes all traces of the vagrant machine
+	     halt            stops the vagrant machine
+	     plugin          manages plugins: install, uninstall, update, etc.
+	     reload          restarts vagrant machine, loads new Vagrantfile configuration
+	     resume          resume a suspended vagrant machine
+	     suspend         suspends the machine
+	     up              starts and provisions the vagrant environment
+	
+	# use suspend and resume together 
+	# reload rebuilds the environment from scratch, helpful if you change the Vagrantfile 
+	# halt is like shuttingdown a guest OS, but it is NOT deleted
+	# destroy shutsdown and deletes 
+	# up only works for a "halted" or non-existent environment 
+	
+	# experiment with the options, and then 
+	vagrant destroy
+	
+	    default: Are you sure you want to destroy the 'default' VM? [y/N] y
+	==> default: Forcing shutdown of VM...
+	==> default: Destroying VM and associated drives...
+	```
+
+[item]: # (slide)
+
+# Links 
+
+* [https://www.vagrantup.com](https://www.vagrantup.com)
+* [https://www.vagrantup.com/docs/getting-started/](https://www.vagrantup.com/docs/getting-started/)
+* [https://www.upguard.com/articles/docker-vs-vagrant](https://www.upguard.com/articles/docker-vs-vagrant)
+* [https://www.quora.com/Why-should-I-use-Vagrant-instead-of-creating-multiple-VMs-in-VirtualBox-or-VMWare-Workstation](https://www.quora.com/Why-should-I-use-Vagrant-instead-of-creating-multiple-VMs-in-VirtualBox-or-VMWare-Workstation)
+
+[item]: # (/slide)
+
+[item]: # (slide)
+## Why do we care 
+
+[item]: # (/slide)
+
+Development in general, but Cloud Native development for sure, are all about using techinques and tools to make their world easier.  Concepts like _Infrastructure as Code_ started with them, and tools like this.  Understanding how a modern developer works, learning to use their tools, will make having a dialog with them much easier.  
+
+It will also help you as you talk with Infrastructure teams to be able to educate them on these types of concepts.  
+
+[item]: # (slide)
+
+## Go do it Exercises 
+
+* Take a look at the [hpreston/myhero_data](https://github.com/hpreston/myhero_data) repo and read through the README section on development environments.  
+* Clone the repo locally and "vagrant up" the environment and try to interact with the microservice API.  
+* Review the Vagrantfile and Vagrantfile.host and see if you can follow how they work together to provide a Docker environment with Vagrant
+
+[item]: # (/slide)
+
+One of the nicest things about Vagrant, is the ability to embed the development environment into the code repositories.  You will find many code repo's that include a Vagrantfile to make development easier.  
 
 
 

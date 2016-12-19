@@ -1,11 +1,15 @@
-## If statements 
 
-```
-if [ $username == "Hank" ]
-then 
-	echo "You are Hank."
-else
-	echo "Nope... you are not Hank."
-fi
-```
+## Supported Environments
+
+### Out of the box support
+
+* Virtualbox 
+* Docker
+* Hyper-V
+
+### Plugins available 
+
+* VMware
+* AWS
+* Others... 
 
