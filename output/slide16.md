@@ -1,8 +1,6 @@
+## Example
 
 ```
-ls ~/coding | grep imapex
-
-imapex
-imapex101
+awk '/hello/ { print $2 }' hello.txt
 ```
 

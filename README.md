@@ -32,8 +32,8 @@ A slide show version of this presentation is available at this link: [General De
 # Basic Linux Tools
 
 * [curl](#curl)
-* [awk](#awk)
 * [grep](#grep)
+* [awk](#awk)
 * [sed](#sed)
 * [bash scripts](#bash-scripts)
 
@@ -263,6 +263,92 @@ curl -u admin:cisco\! 192.168.0.1/home
 ---
 
 [item]: # (slide)
+# grep
+
+```
+ls ~/coding | grep imapex
+
+imapex
+imapex101
+```
+
+[item]: # (/slide)
+
+grep, and it's many variations, is a commonly used pattern matching utility.  It leverages regular expressions to output lines matching a given pattern.  There are many Linux utilities that build upon the basic RegEx Pattern matching with grep.  We will look at **awk** next which provides output processing in addition to matching.     
+
+grep is often used as a secondary command where output from one command is "piped" to it for filtering.  This example shows a common usage. 
+
+[item]: # (slide)
+
+```
+ls ~/coding | grep imapex
+
+imapex
+imapex101
+```
+
+[item]: # (/slide)
+
+The power of grep comes by leveraging actual regular expressions, and not just static patterns.  
+
+
+[item]: # (slide)
+# Experiments 
+
+[item]: # (/slide)
+
+* Create a file called `hello.txt` that contains this data 
+	
+	```
+	hello world
+	goodbye world
+	good morning
+	good evening
+	life is a box of chocolates
+	you never know what you're going to get
+	```
+
+* Match lines containing the word 'hello'
+
+	```
+	grep 'hello' hello.txt
+	
+	hello world
+	```
+	
+* Match lines containing the word 'hello' or 'world'
+
+	```
+	grep '(hello)|(world)' hello.txt
+	
+	# Nothing returned... 
+	# Because this qualifies as an "extended" regular expression
+	# use grep -E or egrep 
+	
+	grep -E '(hello)|(world)' hello.txt
+	
+	hello world
+	goodbye world
+	```
+
+* Match lines containing the letter 'x' or the leter 't'
+
+	```
+	egrep '[xt]' hello.txt
+	
+	```
+
+[item]: # (slide)
+# Links 
+
+* [http://ryanstutorials.net/linuxtutorial/cheatsheetgrep.php](http://ryanstutorials.net/linuxtutorial/cheatsheetgrep.php) 
+* [http://ryanstutorials.net/linuxtutorial/grep.php](http://ryanstutorials.net/linuxtutorial/grep.php)
+
+[item]: # (/slide)
+
+---
+
+[item]: # (slide)
 # awk
 
 ```
@@ -296,16 +382,18 @@ awk '/hello/ { print $2 }' hello.txt
 
 [item]: # (/slide)
 
-* Create a file called `hello.txt` that contains this data 
-	
-	```
-	hello world
-	goodbye world
-	good morning
-	good evening
-	life is a box of chocolates
-	you never know what you're going to get
-	```
+These examples will use the hello.txt file created above.  
+
+```
+cat hello.txt
+
+hello world
+goodbye world
+good morning
+good evening
+life is a box of chocolates
+you never know what you're going to get
+```
 
 * Print the first word in each sentance 
 
@@ -351,94 +439,6 @@ awk '/hello/ { print $2 }' hello.txt
 [item]: # (/slide)
 
 The above examples just introduce what awk can do.  Here are some links for when you need some more advanced details. 
-
----
-
-[item]: # (slide)
-# grep
-
-```
-ls ~/coding | grep imapex
-
-imapex
-imapex101
-```
-
-[item]: # (/slide)
-
-grep, and it's many variations, is a commonly used pattern matching utility.  It leverages regular expressions to output lines matching a given pattern.  Unlike awk, grep simply returns the matched lines as they are, no processing on output is done.  
-
-grep is often used as a secondary command where output from one command is "piped" to it for filtering.  This example shows a common usage. 
-
-[item]: # (slide)
-
-```
-ls ~/coding | grep imapex
-
-imapex
-imapex101
-```
-
-[item]: # (/slide)
-
-The power of grep comes by leveraging actual regular expressions, and not just static patterns.  
-
-
-[item]: # (slide)
-# Experiments 
-
-[item]: # (/slide)
-
-These examples will use the hello.txt file created above.  
-
-```
-cat hello.txt
-
-hello world
-goodbye world
-good morning
-good evening
-life is a box of chocolates
-you never know what you're going to get
-```
-
-* Match lines containing the word 'hello'
-
-	```
-	grep 'hello' hello.txt
-	
-	hello world
-	```
-	
-* Match lines containing the word 'hello' or 'world'
-
-	```
-	grep '(hello)|(world)' hello.txt
-	
-	# Nothing returned... 
-	# Because this qualifies as an "extended" regular expression
-	# use grep -E or egrep 
-	
-	grep -E '(hello)|(world)' hello.txt
-	
-	hello world
-	goodbye world
-	```
-
-* Match lines containing the letter 'x' or the leter 't'
-
-	```
-	egrep '[xt]' hello.txt
-	
-	```
-
-[item]: # (slide)
-# Links 
-
-* [http://ryanstutorials.net/linuxtutorial/cheatsheetgrep.php](http://ryanstutorials.net/linuxtutorial/cheatsheetgrep.php) 
-* [http://ryanstutorials.net/linuxtutorial/grep.php](http://ryanstutorials.net/linuxtutorial/grep.php)
-
-[item]: # (/slide)
 
 ---
 
@@ -719,7 +719,7 @@ done
 COUNTER=0
 while [  $COUNTER -lt 10 ]; do
 	echo The counter is $COUNTER
-	COUNTER=COUNTER+1 
+	COUNTER=$(($COUNTER+1)) 
 done	
 ```	
 
@@ -736,7 +736,7 @@ done
 COUNTER=0
 while [  $COUNTER -lt 10 ]; do
 	echo The counter is $COUNTER
-	COUNTER=COUNTER+1 
+	COUNTER=$(($COUNTER+1)) 
 	sleep 5
 done	
 ```	

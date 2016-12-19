@@ -1,8 +1,8 @@
 # Basic Linux Tools
 
 * [curl](#curl)
-* [awk](#awk)
 * [grep](#grep)
+* [awk](#awk)
 * [sed](#sed)
 * [bash scripts](#bash-scripts)
 
