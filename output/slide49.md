@@ -1,6 +1,2 @@
-## pip
-
-```
-pip install requests
-```
+# Why do we care
 

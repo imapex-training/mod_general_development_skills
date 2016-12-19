@@ -1,11 +1,6 @@
-## Using variables 
+## sed
 
 ```
-# Create a variable called myvar 
-myvar="Hello world!"
-
-# Use the variable 
-echo $myvar
-
+sed 's/XXXXX/api.localhost.com/' template.json > install.json
 ```
 

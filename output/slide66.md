@@ -1,7 +1,8 @@
+### Challenges with legacy development approaches 
 
-## Go Do it Exercises
-
-* Run flake8 against the tests.py file 
-* Correct any errors that are identified
-
+* Time delays in getting new development environments
+* Managing their own dev platforms 
+* Significant Differences between Dev and Production
+* Shared development environments for multiple projects 
+* Rebuilding a new environment takes time
 

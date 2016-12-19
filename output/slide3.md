@@ -1,8 +1,11 @@
-# Basic Linux Tools
 
-* [curl](#curl)
-* [awk](#awk)
-* [grep](#grep)
-* [sed](#sed)
-* [bash scripts](#bash-scripts)
+# Markdown
+
+```
+# Markdown! 
+
+Great for 
+* Making quick notes
+* Easy display formating 
+```
 

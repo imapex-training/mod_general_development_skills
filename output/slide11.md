@@ -1,6 +1,3 @@
-# awk
-
-```
-awk '/hello/ { print $2 }' hello.txt
-```
+## Don't forget the "Ops" in DevOps...
+![](images/devops-infinity.png)
 

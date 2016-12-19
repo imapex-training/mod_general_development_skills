@@ -1,22 +1,11 @@
-## Loops 
-
-### for loop
+## Using variables 
 
 ```
-#!/bin/bash
-for i in $( ls ); do
-   echo item: $i
-done		
-```
+# Create a variable called myvar 
+myvar="Hello world!"
 
-### while loop
+# Use the variable 
+echo $myvar
 
 ```
-#!/bin/bash 
-COUNTER=0
-while [  $COUNTER -lt 10 ]; do
-	echo The counter is $COUNTER
-	COUNTER=COUNTER+1 
-done	
-```	
 
