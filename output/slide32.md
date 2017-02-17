@@ -1,18 +1,8 @@
-## Asking user for input 
 
-```
-# Ask user for their name
-echo "What is your name?"
+* If you need to leverage a proxy server to access the site, use `-x <proxy>`
 
-# "read" the input and save to variable 
-read username
-
-# Hide the input with -s
-echo "What is the secret word?"
-read -s secret
-
-echo "The name given was: $username."
-echo "The secret word was: $secret... don't tell anyone."
-
-```
+	```
+	# Example command 
+	curl -x "https://myproxyserver.com:8080" http://internet.com 
+	```
 

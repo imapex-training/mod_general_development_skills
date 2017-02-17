@@ -1,10 +1,22 @@
+## Loops 
 
-### Developing Before Vagrant
+### for loop
 
-* Locally on their physical machine 
-* Request Virtual Machines for development from IT or other source 
-* Run their own VM platform
-	* On a personal dedicated server.  The ESX server in the corner or under the desk.  
-	* With something like Virtual Box or VM Fusion on their workstation.  
-* Or whatever else they could come up with.  
+```
+#!/bin/bash
+for i in $( ls ); do
+   echo item: $i
+done		
+```
+
+### while loop
+
+```
+#!/bin/bash 
+COUNTER=0
+while [  $COUNTER -lt 10 ]; do
+	echo The counter is $COUNTER
+	COUNTER=$(($COUNTER+1)) 
+done	
+```	
 

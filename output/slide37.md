@@ -1,22 +1,12 @@
-## Loops 
 
-### for loop
-
-```
-#!/bin/bash
-for i in $( ls ); do
-   echo item: $i
-done		
-```
-
-### while loop
-
-```
-#!/bin/bash 
-COUNTER=0
-while [  $COUNTER -lt 10 ]; do
-	echo The counter is $COUNTER
-	COUNTER=$(($COUNTER+1)) 
-done	
-```	
+* Create a file called `hello.txt` that contains this data 
+	
+	```
+	hello world
+	goodbye world
+	good morning
+	good evening
+	life is a box of chocolates
+	you never know what you're going to get
+	```
 

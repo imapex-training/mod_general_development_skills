@@ -1,4 +1,7 @@
-# Python Skills 
 
-![](images/python-logo.png)
+* Deactivate the virtualenv 
+
+	```
+	deactivate 
+	```
 

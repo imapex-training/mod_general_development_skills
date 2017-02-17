@@ -1,7 +1,16 @@
-# Links 
 
-* [http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
-* [https://linuxconfig.org/bash-scripting-tutorial](https://linuxconfig.org/bash-scripting-tutorial)
-* [http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
-* [http://cli.learncodethehardway.org/bash_cheat_sheet.pdf](http://cli.learncodethehardway.org/bash_cheat_sheet.pdf)
+* Match lines containing the word 'hello' or 'world'
+
+	```
+	grep '(hello)|(world)' hello.txt
+	
+	# Nothing returned... 
+	# Because this qualifies as an "extended" regular expression
+	# use grep -E or egrep 
+	
+	grep -E '(hello)|(world)' hello.txt
+	
+	hello world
+	goodbye world
+	```
 

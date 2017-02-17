@@ -1,6 +1,10 @@
-## Key Concepts and Terms
 
-* `vagrant up`
-* `Vagrantfile`
-* A ***box***
+* Check current module installation status
+
+	```
+	pip freeze 
+	
+	# Nothing should be returned
+	
+	```
 

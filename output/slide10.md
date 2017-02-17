@@ -1,7 +1,20 @@
 
-> See, you not only have to be a good coder to create a system like Linux, you have to be a sneaky bastard too. -Linus Torvalds
+* Add an image file 
+    * Images are inserted with `![Alt-Text](image src)`
 
---- 
+```
+# Colors 
 
-> Linux has never been about quality. There are so many parts of the system that are just these cheap little hacks, and it happens to run. -Theo de Raadt
+![Color Wheel](http://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2011/7/18/0/HGTV_Color-Wheel-Full_s4x3.jpg.rend.hgtvcom.616.462.jpeg)
+
+## Primary 
+* **Red**
+* *Blue*
+* ***Yellow***
+
+## Secondary
+1. [Green](http://green.io)
+2. Purple
+3. Orange
+```        
 

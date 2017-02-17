@@ -1,5 +1,16 @@
+## Testing success/failure of a command
 
-# Vagrant 
+```
+#! /bin/bash 
 
-![](images/vagrant1.png)
+echo "This will work!"
+
+if [ $? -eq 0 ]
+then 
+	echo "Yep it worked"
+else 
+	echo "It didn't work :( " 
+fi
+
+```
 

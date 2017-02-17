@@ -1,5 +1,14 @@
 
-## Managing Python Dependencies
+* Print the first word in each sentance 
 
-![](images/python-dependencies.jpg)
+	```
+	awk '{ print $1 }' hello.txt
+	
+	hello
+	goodbye
+	good
+	good
+	life
+	you
+	```	
 
