@@ -1,5 +1,14 @@
-# Writing Test Cases
 
-> “Testing is an infinite process of comparing the invisible to the ambiguous in order to avoid the unthinkable
-> happening to the anonymous.”— James Bach
+* Create a new file called `doubler.py` with the following function.  
+
+	```	
+	def doubler(n):
+	    """
+	    A simple doubler function
+	    :param n: int
+	    :return: int
+	    """
+	    
+	    return 2 * n	
+	```
 

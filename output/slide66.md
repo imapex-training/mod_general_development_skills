@@ -1,8 +1,12 @@
-### Challenges with legacy development approaches 
+### Common While loop... waiting for something to happen
 
-* Time delays in getting new development environments
-* Managing their own dev platforms 
-* Significant Differences between Dev and Production
-* Shared development environments for multiple projects 
-* Rebuilding a new environment takes time
+```
+#!/bin/bash 
+COUNTER=0
+while [  $COUNTER -lt 10 ]; do
+	echo The counter is $COUNTER
+	COUNTER=$(($COUNTER+1)) 
+	sleep 5
+done	
+```	
 

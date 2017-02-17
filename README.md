@@ -62,8 +62,6 @@ Many IDEs provide support for Markdown editing/rendering as part of their langua
 
 # Exercises 
 
-[item]: # (/slide)
-
 * These exercises are best completed with an IDE or tool that can render the Markdown while editing.  Some options: 
 
     * JetBrains tools 
@@ -73,6 +71,10 @@ Many IDEs provide support for Markdown editing/rendering as part of their langua
     * MacDown
     * Atom
     * Eclipse
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * Create a new blank file in your editor and save it as `imapex101_ex.md` 
 
@@ -86,6 +88,10 @@ Many IDEs provide support for Markdown editing/rendering as part of their langua
 
 ## Secondary
 ```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * Create a list of colors
     * `*` or `1.` create unordered and ordered lists
@@ -103,6 +109,10 @@ Many IDEs provide support for Markdown editing/rendering as part of their langua
 2. Purple
 3. Orange
 ```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * Create emphasis with bold and/or italics 
     * Surrounding a word or phrase with `**PHRASE**` will bold
@@ -124,6 +134,10 @@ Many IDEs provide support for Markdown editing/rendering as part of their langua
 3. Orange
 ```
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Create a hyperlink to another page
     * Links are created with `[Text](address)`
 
@@ -140,6 +154,10 @@ Many IDEs provide support for Markdown editing/rendering as part of their langua
 2. Purple
 3. Orange
 ```    
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * Add an image file 
     * Images are inserted with `![Alt-Text](image src)`
@@ -160,10 +178,15 @@ Many IDEs provide support for Markdown editing/rendering as part of their langua
 3. Orange
 ```        
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Insert a code into your document
     * For inline, surround with single ticks ` 
     * For blocks, surround with triple ticks ```
-        * *In example below, an extra space is added before the ``` to prevent rendering in the lab*
+        * *In example below, "'''"  is used instead of "```" to prevent rendering in the lab*
+
 
 ```
 # Colors 
@@ -180,11 +203,13 @@ Many IDEs provide support for Markdown editing/rendering as part of their langua
 2. Purple
 3. Orange
 
- ```
- # Some Code snippet 
- green = blue + yellow
- ```
-```        
+''' <--- replace with `
+# Some Code snippet 
+green = blue + yellow
+'''  <--- replace with ` 
+``` 
+      
+[item]: # (/slide)
 
 [item]: # (slide)
 
@@ -285,6 +310,8 @@ curl is a general purpose command line utility for making requests to web server
 
 [item]: # (/slide)
 
+[item]: # (slide)
+
 * Basic curl request
   
   ```
@@ -293,6 +320,11 @@ curl is a general purpose command line utility for making requests to web server
   
   # No data should be returned... 
   ```
+
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * Inspect the HTTP Headers with `-v` to find out what happened... 
   
@@ -320,9 +352,19 @@ curl is a general purpose command line utility for making requests to web server
 	<
 	* Connection #0 to host api.ciscospark.com left intact  
   ```  
+
+[item]: # (/slide)
+
+[item]: # (slide)
+
   * Lines beginning with `>` indicate outgoing **REQUEST** headers while those with `<` are for incoming **RESPONSE** headers
   * The first **RESPONSE** header `HTTP/1.1 401 Unauthorized` indicates the problem.  We are _Unauthorized_. 
   * Most APIs require authentication/authorization
+
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Cisco Spark, and many other services, use Request Headers to provide authenticaiton information.  
 	* Set a Request Header with `-H "<Header-Name>: <Value>` argument.  Multiple `-H` arguments are supported.
 	* OAUTH2 is a common mechanism used for authentication, and is used by Cisco Spark.  It leverages a Request Header called **Authorization** with a value of _Bearer \<TOKEN\>_
@@ -333,6 +375,11 @@ curl is a general purpose command line utility for making requests to web server
 	
 	{"items":[{"id":"...","name":"MidW/A imapex","created":"2016-06-29T13:29:05.416Z"}]}
 	```
+
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * curl will simply write out the data as returned by the server, and it isn't always in a handy format, particularly when returned as raw JSON.  You can "pipe" JSON data to an included python module to make it more readable.  
 
 	```
@@ -353,12 +400,22 @@ curl is a general purpose command line utility for making requests to web server
 	    ]
 	}
 	```  
+
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Some other sites leverage Basic Authenticaiton with usernames and passwords.  These can be used with curl using the `-u <username>:<password>` format.  
 	
 	```
 	# Example using basic authentication with a ficticious site
 	curl -u admin:password http://api.basicauth.com
 	```
+
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * You can capture the returned data (not headers, just data) using the `-o <file>` option to curl.  
 	* _You can use `-o /dev/null` as a shortcut to drop any returned data if only interested in headers or testing_
 
@@ -371,6 +428,10 @@ curl is a general purpose command line utility for making requests to web server
 	
 	```	
 	
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * If you want to capture the Headers to a file, use the `-D <file>` argument. 
 
 	```
@@ -383,31 +444,43 @@ curl is a general purpose command line utility for making requests to web server
 	-rw-r--r--  1 user123  staff  296 Jul 26 16:10 headers.txt
 	```
 
-* By default curl sends an HTTP **GET** method.  To send other methods, use the `-X` option.  
+[item]: # (/slide)
 
-	```
-	curl -X POST -H "Authorization: Bearer $SPARK_TOKEN" \
-		https://api.ciscospark.com/v1/messages 
+[item]: # (slide)
+
+* By default curl sends an HTTP **GET** method.  
+* To send other methods, use the `-X` option.  
+
+```
+curl -X POST -H "Authorization: Bearer $SPARK_TOKEN" \
+	https://api.ciscospark.com/v1/messages 
 	
-	{"message":"Required request body is missing","errors":[{"description":"Required request body is missing"}],"trackingId":"NA_c4d9d517-3617-4b6a-a521-dc2a26334dd6"}
+{"message":"Required request body is missing","errors":[{"description":"Required request body is missing"}],"trackingId":"NA_c4d9d517-3617-4b6a-a521-dc2a26334dd6"}
 	
-	# When POSTING, you often have to include data, as the error message indicates
-	```
+# When POSTING, you often have to include data, as the error message indicates
+```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * With curl you can send data to a server as part of an API request as well.  The `-d` flag is used, and several options exist for providing the data.  You'll often need to include a `-H "Content-type: application/json"` header as well indicating the type of data being sent.  
 	* Inline 
 
-	```	
-	# When sending JSON data, you need to escape inner quotes
-	curl -X POST -H "Authorization: Bearer $SPARK_TOKEN" \
-		-H "Content-type: application/json" \
-		https://api.ciscospark.com/v1/messages \
-		-d "{\"toPersonEmail\": \"$PARTNER_EMAIL\",\"text\": \"Test message from lab\"}"
+```	
+# When sending JSON data, you need to escape inner quotes
+curl -X POST -H "Authorization: Bearer $SPARK_TOKEN" \
+	-H "Content-type: application/json" \
+	https://api.ciscospark.com/v1/messages \
+	-d "{\"toPersonEmail\": \"$PARTNER_EMAIL\",\"text\": \"Test message from lab\"}"
 	
-	{"id":"...","roomId":"...","toPersonEmail":"...","roomType":"direct","text":"Test message from lab","personId":"...","personEmail":"...","created":"2016-07-26T21:05:00.330Z"}
-	
-	
-	```
+{"id":"...","roomId":"...","toPersonEmail":"...","roomType":"direct","text":"Test message from lab","personId":"...","personEmail":"...","created":"2016-07-26T21:05:00.330Z"}
+		
+```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * If you are making a request to an HTTPs site, but one that lacks a fully verifiable certificate, curl will by default throw an error.  You can use the `-k` option to allow insecure connections.  
 
@@ -416,12 +489,18 @@ curl is a general purpose command line utility for making requests to web server
 	curl -k https://badsecurity.com
 	```  
 	
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * If you need to leverage a proxy server to access the site, use `-x <proxy>`
 
 	```
 	# Example command 
 	curl -x "https://myproxyserver.com:8080" http://internet.com 
 	```
+
+[item]: # (/slide)
 	
 [item]: # (slide)
 ## Links 
@@ -465,24 +544,16 @@ grep, and it's many variations, is a commonly used pattern matching utility.  It
 
 grep is often used as a secondary command where output from one command is "piped" to it for filtering.  This example shows a common usage. 
 
-[item]: # (slide)
-
-```
-ls ~/coding | grep imapex
-
-imapex
-imapex101
-```
-
-[item]: # (/slide)
-
 The power of grep comes by leveraging actual regular expressions, and not just static patterns.  
 
 
 [item]: # (slide)
+
 # Experiments 
 
 [item]: # (/slide)
+
+[item]: # (slide)
 
 * Create a file called `hello.txt` that contains this data 
 	
@@ -495,6 +566,10 @@ The power of grep comes by leveraging actual regular expressions, and not just s
 	you never know what you're going to get
 	```
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Match lines containing the word 'hello'
 
 	```
@@ -503,6 +578,10 @@ The power of grep comes by leveraging actual regular expressions, and not just s
 	hello world
 	```
 	
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Match lines containing the word 'hello' or 'world'
 
 	```
@@ -518,12 +597,18 @@ The power of grep comes by leveraging actual regular expressions, and not just s
 	goodbye world
 	```
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Match lines containing the letter 'x' or the leter 't'
 
 	```
 	egrep '[xt]' hello.txt
 	
 	```
+
+[item]: # (/slide)
 
 [item]: # (slide)
 # Links 
@@ -546,28 +631,15 @@ awk '/hello/ { print $2 }' hello.txt
 
 awk is a very powerful pattern matching and processing program for lines of text.  Becoming a power user of awk will take years, but even a little bit of capability can be very helpful for processing text files (or more commonly, data returned from other programs).  
 
-
-[item]: # (slide)
-## Example
-
-```
-awk '/hello/ { print $2 }' hello.txt
-```
-
-[item]: # (/slide)
-
 * `awk` - the program to run 
 * `'/hello/ { print $2 }'` - the action awk is being instructed to do
 	* `/hello/` - the first part indicates the **match** part of the command using regular expressions.  In this case, match any line containing 'hello'
 	* `{ print $2 }` - the second part is what to do with the match lines.  Here we are asking to print out the second field.  By default, awk considers whitespace to be field delimeters. 
 * `hello.txt` - the file to process
 
-
 [item]: # (slide)
 
 # Experiments
-
-[item]: # (/slide)
 
 These examples will use the hello.txt file created above.  
 
@@ -582,6 +654,10 @@ life is a box of chocolates
 you never know what you're going to get
 ```
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Print the first word in each sentance 
 
 	```
@@ -594,6 +670,10 @@ you never know what you're going to get
 	life
 	you
 	```	
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * Print the second word in all lines containing the word 'good'
 
@@ -611,11 +691,17 @@ you never know what you're going to get
 	evening
 	```
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Count the number of lines containing 'world'
 
 	```
 	awk '/world/{++cnt} END {print "Count = ", cnt}' hello.txt
 	```
+
+[item]: # (/slide)
 
 [item]: # (slide)
 # Links 
@@ -636,9 +722,6 @@ The above examples just introduce what awk can do.  Here are some links for when
 sed 's/XXXXX/api.localhost.com/' template.json > install.json
 ```
 
-[item]: # (/slide)
-
-[item]: # (slide)
 sed is the **s**tream **ed**itor tool in Unix.  
 
 [item]: # (/slide)
@@ -650,6 +733,8 @@ Stream means is makes changes while it process data flowing through the applicat
 
 [item]: # (/slide)
 
+[item]: # (slide)
+
 * Change 'sad' to 'happy' 
 	* Use the `s/regex/repl/` command structure.  `s` means substitute. 
 
@@ -659,6 +744,10 @@ Stream means is makes changes while it process data flowing through the applicat
 	I am happy.
 	```
 	
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Again, but really sad
 	* Need to use the `g` flag to indicate a global change, and not just a first match change. 
 
@@ -668,6 +757,10 @@ Stream means is makes changes while it process data flowing through the applicat
 	I am happy.  So very very happy...
 	```
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * If you are matching text that contains `/` it can be a pain to escape them all, so you can use `_`, `:`, `|` as alternatives.  Just pick something that isn't in your string.  
 
 	```
@@ -675,6 +768,10 @@ Stream means is makes changes while it process data flowing through the applicat
 	
 	I am happy.  So very very happy...
 	```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * sed much more useful working with files.  Let's emphasize 'good' to 'GOOD'
 
@@ -699,11 +796,19 @@ Stream means is makes changes while it process data flowing through the applicat
 	you never know what you're going to get
 	```
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * And save the output to a new file 
 
 	```
 	sed 's/good /GOOD /' hello.txt > hello2.txt
 	```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * Update the original file (and backup the old data) 
 
@@ -722,6 +827,8 @@ Stream means is makes changes while it process data flowing through the applicat
 	# Put it back the way it was... 
 	sed -i '.bak' 's/GOOD /good /' hello.txt 
 	```
+
+[item]: # (/slide)
 
 [item]: # (slide)
 # Links 
@@ -1023,6 +1130,8 @@ A secondary benefit, but very important as well, is the ability to limit the mod
 
 [item]: # (/slide)
 
+[item]: # (slide)
+
 * Install pip on your workstation 
 	* One method... Download [get-pip.py](https://bootstrap.pypa.io/get-pip.py)
 	
@@ -1036,11 +1145,19 @@ A secondary benefit, but very important as well, is the ability to limit the mod
 		* yum, apt, etc 
 
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Install virtualenv on your workstation using pip
 
 	```
 	pip install virtualenv 
 	```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * Create a new folder for this experiement 
 
@@ -1049,6 +1166,10 @@ A secondary benefit, but very important as well, is the ability to limit the mod
 	cd imapex101venvlab
 	
 	```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * Create a new virtualenv in this directory.  It will create a new folder called `venv` containing an independent copy of python as well as pip for module management 
 	
@@ -1060,6 +1181,10 @@ A secondary benefit, but very important as well, is the ability to limit the mod
 	
 	```
 	
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * You need to activate the new virtualenv to use it
 
 	```
@@ -1075,6 +1200,10 @@ A secondary benefit, but very important as well, is the ability to limit the mod
 	source venv/bin/activate 
 	```
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Check current module installation status
 
 	```
@@ -1083,6 +1212,10 @@ A secondary benefit, but very important as well, is the ability to limit the mod
 	# Nothing should be returned
 	
 	```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * Install a module in the environment and verify status
 
@@ -1100,12 +1233,20 @@ A secondary benefit, but very important as well, is the ability to limit the mod
 	
 	```
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Create a requirements.txt file from the current status
 
 	```
 	pip freeze > requirements.txt 
 	
 	```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * Use this echo command to update the requirements.txt file to add Flask as a new dependency 
 
@@ -1118,6 +1259,10 @@ A secondary benefit, but very important as well, is the ability to limit the mod
 	requests==2.10.0
 	Flask==0.10.1
 	```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * Use pip to read in the requirements and verify the virtualenv meets all needed requirements.  
 
@@ -1136,11 +1281,17 @@ A secondary benefit, but very important as well, is the ability to limit the mod
 	Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.10 itsdangerous-0.24 
 	```
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Deactivate the virtualenv 
 
 	```
 	deactivate 
 	```
+
+[item]: # (/slide)
 	
 [item]: # (slide)
 
@@ -1216,6 +1367,8 @@ and produce a more robust feature.
 
 [item]: # (/slide)
 
+[item]: # (slide)
+
 * Create a new directory for our testing project, and create a new virtual environment within it.  
 
 	```
@@ -1224,6 +1377,10 @@ and produce a more robust feature.
 	virtualenv venv 
 	source venv/bin/activate 
 	```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * Create a new file called `doubler.py` with the following function.  
 
@@ -1238,6 +1395,10 @@ and produce a more robust feature.
 	    return 2 * n	
 	```
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * What do we know about the code?  In the case of `doubler()` we know from the code that it takes an integer as an input and returns an integer equal to two times the input. Great.. so what? In this simple example, not much can go wrong, but we should test to document what the use case was.  
 
 	```
@@ -1250,6 +1411,10 @@ and produce a more robust feature.
 	
 	```
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Did you get what you expected?  Why not?   
 * As we've written these functions, we've made some assumptions about how they will be used, and by whom.  We also should document those assumptions in the form of a test case(s).. We know we want to test a couple things.
 	* The function works - 2 x 2 = 4 and 4 x 2 = 8
@@ -1257,27 +1422,36 @@ and produce a more robust feature.
 	* The function should return an integer
 
 * So let's get started. Python unittests is a common library used for testing, and the easiest to get started with.
+
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Create a new file `tests.py` with the following contents.
 
-	```
-	import unittest
-	from doubler import doubler
+```
+import unittest
+from doubler import doubler
 	
-	class HelperFunctionTests(unittest.TestCase):
-	    def test_001_valid_type_is_returned(self):
-	        print "Executing test {}".format(self)
-	        test = doubler(2)
-	        self.assertIsInstance(test, int)
-	
-	
-	    def test_002_double_4(self):
-	        print "Executing test {}".format(self)
-	        test = doubler(4)
-	        self.assertEqual(test, 8)
+class HelperFunctionTests(unittest.TestCase):
+    def test_001_valid_type_is_returned(self):
+        print "Executing test {}".format(self)
+        test = doubler(2)
+        self.assertIsInstance(test, int)
 	
 	
-	unittest.main()
-	```
+    def test_002_double_4(self):
+        print "Executing test {}".format(self)
+        test = doubler(4)
+        self.assertEqual(test, 8)
+	
+	
+unittest.main()
+```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * Run the new file
 
@@ -1297,32 +1471,45 @@ and produce a more robust feature.
 	OK
 	```
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * So we've accounted for all of the appropriate uses of our functions, but what happens if we start to think about how it could break?  As we noted earlier, doubler('2') may or may not be very helpful. 
 * Let's try a test-driven development approach.
 * Assuming we wanted to add input validation to the doubler function and throw an exception if we don't receive an integer
+
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Add a new test to `tests.py` 
 
-	```
-	import unittest
-	from doubler import doubler
+```
+import unittest
+from doubler import doubler
 	
-	class HelperFunctionTests(unittest.TestCase):
-	    def test_001_valid_type_is_returned(self):
-	        test = doubler(2)
-	        self.assertIsInstance(test, int)
+class HelperFunctionTests(unittest.TestCase):
+    def test_001_valid_type_is_returned(self):
+        test = doubler(2)
+        self.assertIsInstance(test, int)
 	
 	
-	    def test_002_double_4(self):
-	        test = doubler(4)
-	        self.assertEqual(test, 8)
+    def test_002_double_4(self):
+        test = doubler(4)
+        self.assertEqual(test, 8)
 	
-	    def test_003_invalid_type_raises_error(self):
-	        with self.assertRaises(TypeError):
-	            test = doubler('2')
+    def test_003_invalid_type_raises_error(self):
+        with self.assertRaises(TypeError):
+            test = doubler('2')
 	
-	unittest.main()
+unittest.main()
 	
-	```
+```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * Re-run the tests
 
@@ -1330,6 +1517,10 @@ and produce a more robust feature.
 	python tests.py
 	```
 	
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * This time around executing our code we get the following:
 
 	```
@@ -1347,6 +1538,10 @@ and produce a more robust feature.
 	
 	FAILED (failures=1)
 	```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * So we've verified the condition we are attempting to correct though the use of a test case. 
 * Now let's modify our function, and add some input validation.  Update `doubler.py` 
@@ -1366,11 +1561,19 @@ and produce a more robust feature.
 	
 	```
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Re-run the tests
 
 	```
 	python tests.py
 	```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * And with our more robust helper function in place, our test is good.
 
@@ -1384,8 +1587,14 @@ and produce a more robust feature.
 	
 	```
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * By leveraging a test-driven development approach, we've verified that we've successfully implemented the enhancement that we intended to.
 * Best of all once the code is done, we don't have to worry about writing tests!!!
+
+[item]: # (/slide)
 
 [item]: # (slide)
 ### Quick Tips
@@ -1399,7 +1608,7 @@ and produce a more robust feature.
 
 # Linting
 
-> At the end of the day, ship the fucking thing! It’s great to rewrite your code and make it cleaner and by the
+> At the end of the day, ship the f*&^ing thing! It’s great to rewrite your code and make it cleaner and by the
 > third time it’ll actually be pretty. But that’s not the point—you’re not here to write code;
 > you’re here to ship products. - Jamie Zawinsky
 
@@ -1449,6 +1658,8 @@ Or for a larger project, you can simply run flake8 from the root of your project
 
 [item]: # (/slide)
 
+[item]: # (slide)
+
 ## Flake the Doubler function
 
 * Enter the `imapex101_testing_example` directory and activate the virtual envionment
@@ -1458,11 +1669,19 @@ Or for a larger project, you can simply run flake8 from the root of your project
 	pip install flake8
 	```
 	
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Run flake8 against the doubler function 
 
 	```
 	flake8 doubler.py
 	```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * If you copied the code exactly from above, you should get this.  
 
@@ -1470,7 +1689,13 @@ Or for a larger project, you can simply run flake8 from the root of your project
 doubler.py:7:1: W293 blank line contains whitespace
 ```
 
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Remove the blank line and rerun flake8
+
+[item]: # (/slide)
 
 [item]: # (slide)
 ## Tips:
@@ -1481,6 +1706,10 @@ doubler.py:7:1: W293 blank line contains whitespace
 		```
 		example = lambda: 'example'  # noqa
 		```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * You can also version control the configuration for flake8 by adding a .flake8 file to the root of your project, here's a sample
 
@@ -1619,6 +1848,8 @@ For a long time, you could only run Docker natively on a Linux OS.  To run Docke
 
 [item]: # (/slide)
 
+[item]: # (slide)
+
 We'll create a new directory and walk through some basic Vagrant exercises.  
 
 * Create the new directory, and initialize vagrant for the project 
@@ -1633,6 +1864,10 @@ We'll create a new directory and walk through some basic Vagrant exercises.
 	the comments in the Vagrantfile as well as documentation on
 	`vagrantup.com` for more information on using Vagrant.
 	```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * `vagrant init centos/7` creates a basic Vagrantfile in the directory.  the `centos/7` part identifies the **box** that we'll use.  Let's take a look. 
 
@@ -1712,7 +1947,11 @@ We'll create a new directory and walk through some basic Vagrant exercises.
 	end
 	```
 	
-	* The basic Vagrantfile is nearly all just comments and sample configuraitons for customization.  Only a very small part is actually active.  That part is listed here to highlight how little is needed to get started with vagrant
+[item]: # (/slide)
+
+[item]: # (slide)
+
+* The basic Vagrantfile is nearly all just comments and sample configuraitons for customization.  Only a very small part is actually active.  That part is listed here to highlight how little is needed to get started with vagrant
 	
 	```
 	Vagrant.configure(2) do |config|
@@ -1720,6 +1959,10 @@ We'll create a new directory and walk through some basic Vagrant exercises.
 	end		
 	```
 	
+[item]: # (/slide)
+
+[item]: # (slide)
+
 * Initialize the development environment
 
 	```
@@ -1769,7 +2012,16 @@ We'll create a new directory and walk through some basic Vagrant exercises.
 	
 	```
 	
-	* 	The output describes the process that is taken to start the environment.  The configuraiton and process is all determined by the `Vagrantfile`.  In our case, there was very little specified, so all configuraiton here is based on the defaults.  The defaults are built to provide a useable environment very easily, with little work by the developer.  
+[item]: # (/slide)
+
+[item]: # (slide)
+
+* 	The output describes the process that is taken to start the environment.  The configuraiton and process is all determined by the `Vagrantfile`.  In our case, there was very little specified, so all configuraiton here is based on the defaults.  The defaults are built to provide a useable environment very easily, with little work by the developer.  
+
+[item]: # (/slide)
+
+[item]: # (slide)
+
 *  Explore the vagrant tools some
 
 	```
@@ -1785,90 +2037,121 @@ We'll create a new directory and walk through some basic Vagrant exercises.
 	suspend the virtual machine. In either case, to restart it again,
 	simply run `vagrant up`.	
 	```	
-	```	
-	# Sometimes you may want to check the status of vagrant 
-	# environments on your entire computer, not just the current directory
-	vagrant global-status
-	
-	id       name    provider   state   directory
-	-----------------------------------------------------------------------------------------------
-	43c5018  default virtualbox saved   /Users/hapresto/coding/myhero_app
-	24f2e19  default virtualbox saved   /Users/hapresto/coding/myhero_web
-	20f794d  default virtualbox saved   /Users/hapresto/coding/mantl_cicd_sampleapp
-	26aa5b7  default docker     running /Users/hapresto/coding/mantl_cicd_sampleapp
-	9608b2f  default docker     running /Users/hapresto/coding/myhero_app
-	2ce0ff0  default virtualbox running /Users/hapresto/coding/myhero_data
-	8f444c4  default docker     running /Users/hapresto/coding/myhero_data
-	01874c0  default virtualbox running /Users/hapresto/coding/imapex101/examples/imapex101vagrant
-	
-	The above shows information about all known Vagrant environments
-	on this machine. This data is cached and may not be completely
-	up-to-date. To interact with any of the machines, you can go to
-	that directory and run Vagrant, or you can use the ID directly
-	with Vagrant commands from any directory. For example:
-	"vagrant destroy 1a2b3c4d"
-	
-	```
-	
-	* In this example you can see that I have several differnet environments running.  Some based on virtualbox, others on docker.  If you want to target an environment that is NOT your current directory, you can specify the id value in the command.  Such as `vagrant destroy 1a2b3c4d`
 
-	```
-	# Log into your newly created environment 
-	vagrant ssh 
-	
-	# this places you into the virtual environment
-	# follow along with the commands entered at the prompts
-	[vagrant@localhost ~]$ pwd
-	/home/vagrant
-	
-	# Vagrant boxes typically use a user called "vagrant"
-	# In that users's home directory is a folder called "sync" 
-	[vagrant@localhost ~]$ ls -l
-	total 4
-	drwxr-xr-x. 2 vagrant vagrant 4096 Jul 27 14:20 sync
-	
-	[vagrant@localhost ~]$ ls -l sync/
-	total 4
-	-rw-r--r--. 1 vagrant vagrant 3020 Jul 27 14:20 Vagrantfile
+[item]: # (/slide)
 
-	# The "sync" folder is linked to the project directory on 
-	# your computer.  This makes development easy because you 
-	# can develop on your laptop using your local tools, and 
-	# immediately test and run code inside the enviornment without
-	# manual coping and transferring code
+[item]: # (slide)
+
+* 	Sometimes you may want to check the status of vagrant environments on your entire computer, not just the current directory
+
+```	
+vagrant global-status
 	
-	# type exit to return to your local terminal
-	exit
-	```
+id       name    provider   state   directory
+-----------------------------------------------------------------------------------------------
+43c5018  default virtualbox saved   /Users/hapresto/coding/myhero_app
+24f2e19  default virtualbox saved   /Users/hapresto/coding/myhero_web
+20f794d  default virtualbox saved   /Users/hapresto/coding/mantl_cicd_sampleapp
+26aa5b7  default docker     running /Users/hapresto/coding/mantl_cicd_sampleapp
+9608b2f  default docker     running /Users/hapresto/coding/myhero_app
+2ce0ff0  default virtualbox running /Users/hapresto/coding/myhero_data
+8f444c4  default docker     running /Users/hapresto/coding/myhero_data
+01874c0  default virtualbox running /Users/hapresto/coding/imapex101/examples/imapex101vagrant
+	
+The above shows information about all known Vagrant environments
+on this machine. This data is cached and may not be completely
+up-to-date. To interact with any of the machines, you can go to
+that directory and run Vagrant, or you can use the ID directly
+with Vagrant commands from any directory. For example:
+"vagrant destroy 1a2b3c4d"
+	
+```
+	
+[item]: # (/slide)
+
+[item]: # (slide)
+
+* In this example you can see that I have several differnet environments running.  Some based on virtualbox, others on docker.  If you want to target an environment that is NOT your current directory, you can specify the id value in the command.  Such as `vagrant destroy 1a2b3c4d`
+
+[item]: # (/slide)
+
+[item]: # (slide)
+
+* Log into your newly created environment 
+
+```
+vagrant ssh 
+	
+# this places you into the virtual environment
+# follow along with the commands entered at the prompts
+[vagrant@localhost ~]$ pwd
+/home/vagrant
+	
+# Vagrant boxes typically use a user called "vagrant"
+# In that users's home directory is a folder called "sync" 
+[vagrant@localhost ~]$ ls -l
+total 4
+drwxr-xr-x. 2 vagrant vagrant 4096 Jul 27 14:20 sync
+	
+[vagrant@localhost ~]$ ls -l sync/
+total 4
+-rw-r--r--. 1 vagrant vagrant 3020 Jul 27 14:20 Vagrantfile
+
+# The "sync" folder is linked to the project directory on 
+# your computer.  This makes development easy because you 
+# can develop on your laptop using your local tools, and 
+# immediately test and run code inside the enviornment without
+# manual coping and transferring code
+	
+# type exit to return to your local terminal
+exit
+```
+
+[item]: # (/slide)
+
+[item]: # (slide)
 
 * Let's lifecycle the environment
+* Run this command to get a glimpse at the different lifecycle actions	
+
+```
+vagrant ? | grep "up\|destroy\|halt\|reload\|resume\|suspend"
 	
-	```
-	# Run this command to get a glimpse at the different lifecycle actions 
+     destroy         stops and deletes all traces of the vagrant machine
+     halt            stops the vagrant machine
+     plugin          manages plugins: install, uninstall, update, etc.
+     reload          restarts vagrant machine, loads new Vagrantfile configuration
+     resume          resume a suspended vagrant machine
+     suspend         suspends the machine
+     up              starts and provisions the vagrant environment
+```
+
+[item]: # (/slide)
+
+[item]: # (slide)
+
+* Details	
+    * use suspend and resume together 
+    *  reload rebuilds the environment from scratch, helpful if you change the Vagrantfile 
+    * halt is like shuttingdown a guest OS, but it is NOT deleted
+    * destroy shutsdown and deletes 
+    * up only works for a "halted" or non-existent environment 
 	
-	vagrant ? | grep "up\|destroy\|halt\|reload\|resume\|suspend"
+[item]: # (/slide)
+
+[item]: # (slide)
+
+* experiment with the options, and then 
+
+```
+vagrant destroy
 	
-	     destroy         stops and deletes all traces of the vagrant machine
-	     halt            stops the vagrant machine
-	     plugin          manages plugins: install, uninstall, update, etc.
-	     reload          restarts vagrant machine, loads new Vagrantfile configuration
-	     resume          resume a suspended vagrant machine
-	     suspend         suspends the machine
-	     up              starts and provisions the vagrant environment
-	
-	# use suspend and resume together 
-	# reload rebuilds the environment from scratch, helpful if you change the Vagrantfile 
-	# halt is like shuttingdown a guest OS, but it is NOT deleted
-	# destroy shutsdown and deletes 
-	# up only works for a "halted" or non-existent environment 
-	
-	# experiment with the options, and then 
-	vagrant destroy
-	
-	    default: Are you sure you want to destroy the 'default' VM? [y/N] y
-	==> default: Forcing shutdown of VM...
-	==> default: Destroying VM and associated drives...
-	```
+    default: Are you sure you want to destroy the 'default' VM? [y/N] y
+==> default: Forcing shutdown of VM...
+==> default: Destroying VM and associated drives...
+```
+
+[item]: # (/slide)
 
 [item]: # (slide)
 

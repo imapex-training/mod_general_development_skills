@@ -1,15 +1,12 @@
-### String Conditionals to know
+### Helpful Hints and Gotchas
 
-* Equal
-	
-``` 
-$username == "Hank"
-```
-	
-* NOT Equal
-	
-```
-$username != "Hank"
-```
+* Escaping command characters
 
+```
+# Wrong
+curl -u admin:cisco! 192.168.0.1/home 
+	
+# Rigth
+curl -u admin:cisco\! 192.168.0.1/home
+```
 

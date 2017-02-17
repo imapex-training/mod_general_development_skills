@@ -1,5 +1,10 @@
-# Writing Test Cases
 
-> “Testing is an infinite process of comparing the invisible to the ambiguous in order to avoid the unthinkable
-> happening to the anonymous.”— James Bach
+* Again, but really sad
+	* Need to use the `g` flag to indicate a global change, and not just a first match change. 
+
+	```
+	echo 'I am sad.  So very very sad...' | sed 's/sad/happy/g'
+	
+	I am happy.  So very very happy...
+	```
 

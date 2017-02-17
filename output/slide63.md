@@ -1,5 +1,24 @@
+		
+### Numeric Comparisons to know 
 
-# Bonus Skills
-
-Here are some additional skills that are handy to have.  If you've interest and time they are available.  
+* Equal and NOT equal 
+	
+```
+$count -eq 42
+$count -ne 100
+```
+		
+* Greater Than and Less Than
+	
+```
+$count -gt 42
+$count -lt 100
+```
+	
+* Greater Than or Equal and Less Than or Equal
+	
+```
+$count -ge 42
+$count -le 100
+```	
 

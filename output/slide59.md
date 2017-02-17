@@ -1,7 +1,11 @@
-## Python Linter - Flake8
+## Using variables 
 
 ```
-pip install flake8 
-flake8 mycode.py
+# Create a variable called myvar 
+myvar="Hello world!"
+
+# Use the variable 
+echo $myvar
+
 ```
 

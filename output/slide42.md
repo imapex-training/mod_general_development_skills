@@ -1,4 +1,6 @@
-# Python Skills 
+# awk
 
-![](images/python-logo.png)
+```
+awk '/hello/ { print $2 }' hello.txt
+```
 
