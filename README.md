@@ -226,7 +226,7 @@ green = blue + yellow
 
 [item]: # (/slide)
 
-In addition to using Markdown for creating documetation on all projects, Markdown formatting is supported in many of the developer tools you will use.  Gitter, Slack, Spark, and nearly any dev focused messaging tool supports Markdown for formating.  Also, when you are filing issues or PRs for repos, those interfaces support markdown as well.  
+In addition to using Markdown for creating documentation on all projects, Markdown formatting is supported in many of the developer tools you will use.  Gitter, Slack, Spark, and nearly any dev focused messaging tool supports Markdown for formatting.  Also, when you are filing issues or PRs for repos, those interfaces support markdown as well.  
 
 Further, you may find yourself beginning to leverage Markdown for general note taking as a great way to quickly pull together thoughts and notes.  
 
@@ -365,7 +365,7 @@ curl is a general purpose command line utility for making requests to web server
 
 [item]: # (slide)
 
-* Cisco Spark, and many other services, use Request Headers to provide authenticaiton information.  
+* Cisco Spark, and many other services, use Request Headers to provide authentication information.  
 	* Set a Request Header with `-H "<Header-Name>: <Value>` argument.  Multiple `-H` arguments are supported.
 	* OAUTH2 is a common mechanism used for authentication, and is used by Cisco Spark.  It leverages a Request Header called **Authorization** with a value of _Bearer \<TOKEN\>_
 
@@ -405,7 +405,7 @@ curl is a general purpose command line utility for making requests to web server
 
 [item]: # (slide)
 
-* Some other sites leverage Basic Authenticaiton with usernames and passwords.  These can be used with curl using the `-u <username>:<password>` format.  
+* Some other sites leverage Basic Authentication with usernames and passwords.  These can be used with curl using the `-u <username>:<password>` format.  
 	
 	```
 	# Example using basic authentication with a ficticious site
@@ -520,7 +520,7 @@ curl -X POST -H "Authorization: Bearer $SPARK_TOKEN" \
 # Wrong
 curl -u admin:cisco! 192.168.0.1/home 
 	
-# Rigth
+# Right
 curl -u admin:cisco\! 192.168.0.1/home
 ```
 
@@ -1105,7 +1105,7 @@ pip install requests
 
 Python uses pip to install and manage packages and optional modules.  Likely you've used it already, but here we're going to talk about how to use it and capture details for packaging into your application.  
 
-The common practice with python applciations is to include a file called `requirements.txt` that lists out all the packages needed for an application.  
+The common practice with python applications is to include a file called `requirements.txt` that lists out all the packages needed for an application.  
 
 [item]: # (slide)
 ## virtualenv
@@ -1116,13 +1116,13 @@ virtualenv appdev
 
 [item]: # (/slide)
 
-Virtual Environments are a capability of Python to create isolated working environments on a single machine with completely different configuraitons and dependencies deployed.  Nearly everyone in IT has horror stories of dependency conflicts between software installed on the same computer.  
+Virtual Environments are a capability of Python to create isolated working environments on a single machine with completely different configurations and dependencies deployed.  Nearly everyone in IT has horror stories of dependency conflicts between software installed on the same computer.  
 
-One example that came up quite a bit in the past was software that leveraged a component of Microsoft Office (ie Word or Excel) as part of its functionality.  Most of these cases required a very specific, and often outdated, version of Office to function.  This would mean that users were unable to update Office on their computers, because it would break some other software.  To solve the, several enterprises leveraged Citrix to isolate applacation environments from one another.  
+One example that came up quite a bit in the past was software that leveraged a component of Microsoft Office (ie. Word or Excel) as part of its functionality.  Most of these cases required a very specific, and often outdated, version of Office to function.  This would mean that users were unable to update Office on their computers, because it would break some other software.  To solve the, several enterprises leveraged Citrix to isolate application environments from one another.  
 
 The second factor in the 12 Factors talks about isolating dependencies.  Virtual Environments, or virtualenv, within Python provide a very easy and elegant way to accomplish this for Python applications.  You can have two different Python programs, running on the same host, leveraging completley different versions of a module.  
 
-A secondary benefit, but very important as well, is the ability to limit the modules added to a virtualenv to just those needed by the software.  If you were to use a single environment for every possible Python applciation you might run, you'll end up with hundreds of different packages installed.  And like anything in IT, that level of complexity will often lead to problems. 
+A secondary benefit, but very important as well, is the ability to limit the modules added to a virtualenv to just those needed by the software.  If you were to use a single environment for every possible Python application you might run, you'll end up with hundreds of different packages installed.  And like anything in IT, that level of complexity will often lead to problems. 
 
 
 [item]: # (slide)
@@ -1311,11 +1311,11 @@ A secondary benefit, but very important as well, is the ability to limit the mod
 [item]: # (/slide)
 
 
-It is up to the developer today to consider dependencies when building applciations, and if you follow the 12 Factor App principals, declaration and islotation are critical.  As we're setting out to build application demos, understanding how to address dependencies is critical to providing useful applicaitons, and not just toy-code.  
+It is up to the developer today to consider dependencies when building applications, and if you follow the 12 Factor App principals, declaration and isolation are critical.  As we're setting out to build application demos, understanding how to address dependencies is critical to providing useful applications, and not just toy-code.  
 
-Every language and framework for development has dependencies.  One part of learning a language you plan to use for application or demo development needs to be a consideration on how they are handled and documented.  You'll want to find the equivelant of *pip* in whichever langague you are using.  
+Every language and framework for development has dependencies.  One part of learning a language you plan to use for application or demo development needs to be a consideration on how they are handled and documented.  You'll want to find the equivelant of *pip* in whichever language you are using.  
 
-In development today, it is not only good practice, but it's expected to provide software with dependency isolation.  If you're building a python application that will be downloaded and ran on a host, virtualenv for python is a standard way to do this.  
+In development today, it is not only good practice, but it's expected to provide software with dependency isolation.  If you're building a python application that will be downloaded and run on a host, virtualenv for python is a standard way to do this.  
 
 However, more and more applications are being packaged in containers (typically Docker containers) which provide a level of isolation even higher than a simple Virtual Environment.  You could create a Virtual Environment within a container, but if you are practicing good container strategy, that is likely not needed as part of final delivery.  
 
@@ -1951,7 +1951,7 @@ We'll create a new directory and walk through some basic Vagrant exercises.
 
 [item]: # (slide)
 
-* The basic Vagrantfile is nearly all just comments and sample configuraitons for customization.  Only a very small part is actually active.  That part is listed here to highlight how little is needed to get started with vagrant
+* The basic Vagrantfile is nearly all just comments and sample configurations for customization.  Only a very small part is actually active.  That part is listed here to highlight how little is needed to get started with vagrant
 	
 	```
 	Vagrant.configure(2) do |config|
@@ -2016,7 +2016,7 @@ We'll create a new directory and walk through some basic Vagrant exercises.
 
 [item]: # (slide)
 
-* 	The output describes the process that is taken to start the environment.  The configuraiton and process is all determined by the `Vagrantfile`.  In our case, there was very little specified, so all configuraiton here is based on the defaults.  The defaults are built to provide a useable environment very easily, with little work by the developer.  
+* 	The output describes the process that is taken to start the environment.  The configuration and process is all determined by the `Vagrantfile`.  In our case, there was very little specified, so all configuration here is based on the defaults.  The defaults are built to provide a usable environment very easily, with little work by the developer.  
 
 [item]: # (/slide)
 
@@ -2100,8 +2100,8 @@ total 4
 # The "sync" folder is linked to the project directory on 
 # your computer.  This makes development easy because you 
 # can develop on your laptop using your local tools, and 
-# immediately test and run code inside the enviornment without
-# manual coping and transferring code
+# immediately test and run code inside the environment without
+# manual copying and transferring code
 	
 # type exit to return to your local terminal
 exit
@@ -2132,9 +2132,9 @@ vagrant ? | grep "up\|destroy\|halt\|reload\|resume\|suspend"
 
 * Details	
     * use suspend and resume together 
-    *  reload rebuilds the environment from scratch, helpful if you change the Vagrantfile 
-    * halt is like shuttingdown a guest OS, but it is NOT deleted
-    * destroy shutsdown and deletes 
+    * reload rebuilds the environment from scratch, helpful if you change the Vagrantfile 
+    * halt is like shutting down a guest OS, but it is NOT deleted
+    * destroy shuts down and deletes 
     * up only works for a "halted" or non-existent environment 
 	
 [item]: # (/slide)
